@@ -46,8 +46,9 @@ class context(object):
         _context.pop(0)
 
 
-def fullpath(*parts, base=None):
+def fullpath(*parts, **kwargs):
     """Generate the full URL path using the currently active path contexts."""
+    base = kwargs.get('base', None)
     if base is None:
         base = app.config['SITE_ROOT']
 
